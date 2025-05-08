@@ -18,7 +18,6 @@ export const globalErrorHandlingController = (
     res: Response,
     next: NextFunction
 ) => {
-    console.log(err);
     if(IS_PRODUCTION) sendErrorProd(err, res);
     else sendErrorDev(err, res);
 }

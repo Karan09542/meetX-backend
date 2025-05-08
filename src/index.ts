@@ -5,5 +5,5 @@ import mongoose,{ connect } from "mongoose";
 connect(`${DB_URL as string}/meetx`).then(() => console.log(`Connected to DB :  ${mongoose.connection.host}`))
 
 app.listen(PORT, ()=> {
-    console.log(`Server is running on port ${IS_PRODUCTION ? "PORT" : "http://localhost:"}${PORT}`);
+    console.log(`Server is running on port ${IS_PRODUCTION ? "PORT" : `http://localhost:${PORT}`}`);
 })
