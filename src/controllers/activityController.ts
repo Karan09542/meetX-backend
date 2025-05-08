@@ -35,7 +35,7 @@ export const addActivityController = CatchAsync(
 export const getActivityController = CatchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
 
-    let { page, limit }: { page?: number | string; limit?: number | string } =
+    let { page, limit, category }: { page?: number | string; limit?: number | string, category?: string } =
       req.query;
     page = Number(page);
     limit = Number(limit);
@@ -44,7 +44,8 @@ export const getActivityController = CatchAsync(
 
     const skip = (page - 1) * limit;
 
-    const activities = await ActivityModel.find().skip(skip).limit(limit);
+    const findQuery = category ? { category } : {};
+    const activities = await ActivityModel.find(findQuery).skip(skip).limit(limit);
     res.status(200).json({
       status: "success",
       message: "activities fetched successfully",
