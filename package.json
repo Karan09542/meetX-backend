@@ -20,6 +20,7 @@
     "@types/express": "^5.0.1",
     "@types/express-validator": "^2.20.33",
     "@types/jsonwebtoken": "^9.0.9",
+    "@types/node": "^22.15.16",
     "tsc-watch": "^6.2.1",
     "typescript": "^5.8.3"
   },
